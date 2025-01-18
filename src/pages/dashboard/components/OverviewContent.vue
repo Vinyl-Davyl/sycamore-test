@@ -125,15 +125,4 @@ import Overview from './Overview.vue'
       </CardContent>
     </Card>
   </div>
-
-  <div class="grid grid-cols-1 gap-4 lg:grid-cols-7">
-    <Card class="col-span-1 lg:col-span-4">
-      <CardHeader>
-        <CardTitle>Overview</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Overview />
-      </CardContent>
-    </Card>
-  </div>
 </template>

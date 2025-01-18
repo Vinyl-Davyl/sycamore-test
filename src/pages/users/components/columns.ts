@@ -13,45 +13,26 @@ export const columns: ColumnDef<User>[] = [
     accessorKey: 'first_name',
     header: ({ column }) => h(DataTableColumnHeader<User>, { column, title: 'First Name' }),
     cell: ({ row }) => h('div', {}, row.getValue('first_name')),
-    enableSorting: true,
-    enableHiding: false,
-    filterFn: (row, id, value) => {
-      return row.getValue(id)?.toLowerCase().includes(value.toLowerCase())
-    },
   },
   {
     accessorKey: 'last_name',
     header: ({ column }) => h(DataTableColumnHeader<User>, { column, title: 'Last Name' }),
     cell: ({ row }) => h('div', {}, row.getValue('last_name')),
-    enableSorting: true,
-    filterFn: (row, id, value) => {
-      return row.getValue(id)?.toLowerCase().includes(value.toLowerCase())
-    },
   },
   {
     accessorKey: 'email',
     header: ({ column }) => h(DataTableColumnHeader<User>, { column, title: 'Email' }),
     cell: ({ row }) => h('div', {}, row.getValue('email')),
-    enableSorting: true,
-    filterFn: (row, id, value) => {
-      return row.getValue(id)?.toLowerCase().includes(value.toLowerCase())
-    },
   },
   {
     accessorKey: 'phone_number',
     header: ({ column }) => h(DataTableColumnHeader<User>, { column, title: 'Phone Number' }),
     cell: ({ row }) => h('div', {}, row.getValue('phone_number')),
-    filterFn: (row, id, value) => {
-      return row.getValue(id)?.toLowerCase().includes(value.toLowerCase())
-    },
   },
   {
     accessorKey: 'state',
     header: ({ column }) => h(DataTableColumnHeader<User>, { column, title: 'State' }),
     cell: ({ row }) => h('div', {}, row.getValue('state')),
-    filterFn: (row, id, value) => {
-      return row.getValue(id)?.toLowerCase().includes(value.toLowerCase())
-    },
   },
   {
     accessorKey: 'status',
