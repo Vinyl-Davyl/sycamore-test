@@ -7,24 +7,16 @@ const tabs = ref([
   { name: 'Overview', value: 'overview' },
   { name: 'Analytics', value: 'analytics' },
   { name: 'Reports', value: 'reports' },
-  { name: 'Notifications', value: 'notifications' },
 ])
 
 const activeTab = ref(tabs.value[0].value)
 </script>
 
 <template>
-  <Page
-    title="Sycamore Admin"
-    description="Hello There 👋"
-    sticky
-  >
+  <Page title="Sycamore Admin" description="Hello There 👋" sticky>
     <Tabs :default-value="activeTab" class="w-full">
       <TabsList>
-        <TabsTrigger
-          v-for="tab in tabs" :key="tab.value"
-          :value="tab.value"
-        >
+        <TabsTrigger v-for="tab in tabs" :key="tab.value" :value="tab.value">
           {{ tab.name }}
         </TabsTrigger>
       </TabsList>
@@ -35,6 +27,4 @@ const activeTab = ref(tabs.value[0].value)
   </Page>
 </template>
 
-<style>
-
-</style>
+<style></style>

@@ -20,38 +20,75 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import { toast } from '@/components/ui/toast'
+import { z } from 'zod'
+import { useUserStore } from '@/stores/userStore'
+import { QuillEditor } from '@vueup/vue-quill'
 import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
 import { UserRoundPlus } from 'lucide-vue-next'
-import { z } from 'zod'
+import '@vueup/vue-quill/dist/vue-quill.snow.css'
 
 const [UseTemplate, GridForm] = createReusableTemplate()
 const isDesktop = useMediaQuery('(min-width: 768px)')
-
 const isOpen = ref(false)
+const userStore = useUserStore()
+
+const nigerianStates = [
+  'Abia',
+  'Adamawa',
+  'Akwa Ibom',
+  'Anambra',
+  'Bauchi',
+  'Bayelsa',
+  'Benue',
+  'Borno',
+  'Cross River',
+  'Delta',
+  'Ebonyi',
+  'Edo',
+  'Ekiti',
+  'Enugu',
+  'FCT',
+  'Gombe',
+  'Imo',
+  'Jigawa',
+  'Kaduna',
+  'Kano',
+  'Katsina',
+  'Kebbi',
+  'Kogi',
+  'Kwara',
+  'Lagos',
+  'Nasarawa',
+  'Niger',
+  'Ogun',
+  'Ondo',
+  'Osun',
+  'Oyo',
+  'Plateau',
+  'Rivers',
+  'Sokoto',
+  'Taraba',
+  'Yobe',
+  'Zamfara',
+]
 
 const schema = z.object({
-  firstName: z.string(),
-  lastName: z.string(),
-  username: z.string(),
-  email: z.string().email(),
-  phoneNumber: z.string().optional(),
-  role: z.enum(['superadmin', 'admin', 'cashier', 'manager']),
-  password: z.string().default('admin888'),
-  confirm: z.string().default('admin888'),
-}).refine(data => data.password === data.confirm, {
-  message: 'Passwords do not match',
-  path: ['confirm'],
+  first_name: z.string().min(1, 'First name is required'),
+  last_name: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Invalid email address'),
+  phone_number: z.string().min(1, 'Phone number is required'),
+  state: z.enum(nigerianStates as [string, ...string[]]),
+  status: z.boolean().default(true),
+  details: z.string(),
 })
 
 function onSubmit(values: Record<string, any>) {
+  userStore.addUser(values)
   toast({
-    title: 'You submitted the following values:',
-    description: h(
-      'pre',
-      { class: 'mt-2 w-[340px] rounded-md bg-slate-950 p-4' },
-      h('code', { class: 'text-white' }, JSON.stringify(values, null, 2)),
-    ),
+    title: 'User created successfully',
+    description: 'The user has been added to the system.',
   })
+  isOpen.value = false
 }
 </script>
 
@@ -59,25 +96,29 @@ function onSubmit(values: Record<string, any>) {
   <UseTemplate>
     <AutoForm
       v-auto-animate
-      class="max-h-[500px] overflow-y-auto"
+      class="max-h-[500px] overflow-y-auto space-y-4"
       :schema="schema"
       :field-config="{
         email: {
           label: 'Email address',
+          inputProps: { type: 'email' },
+        },
+        state: {
+          label: 'State',
           inputProps: {
-            type: 'email',
+            options: nigerianStates,
           },
         },
-        password: {
-          label: 'Password',
-          inputProps: {
-            type: 'password',
-          },
+        status: {
+          label: 'Set to active',
+          inputProps: { type: 'checkbox' },
         },
-        confirm: {
-          label: 'Password',
+        details: {
+          label: 'Customer Details',
           inputProps: {
-            type: 'password',
+            component: QuillEditor,
+            theme: 'snow',
+            contentType: 'html',
           },
         },
       }"
@@ -85,7 +126,7 @@ function onSubmit(values: Record<string, any>) {
     >
       <div class="flex items-center justify-end space-x-2">
         <Button type="submit" class="w-full">
-          SaveChanges
+          Create User
         </Button>
       </div>
     </AutoForm>
@@ -135,5 +176,4 @@ function onSubmit(values: Record<string, any>) {
   </Drawer>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
