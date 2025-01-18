@@ -26,6 +26,7 @@ import { createReusableTemplate, useMediaQuery } from '@vueuse/core'
 import { UserRoundPlus } from 'lucide-vue-next'
 import { z } from 'zod'
 import '@vueup/vue-quill/dist/vue-quill.snow.css'
+import { User } from '../data/schema'
 
 const [UseTemplate, GridForm] = createReusableTemplate()
 const isDesktop = useMediaQuery('(min-width: 768px)')
@@ -83,7 +84,17 @@ const schema = z.object({
 })
 
 function onSubmit(values: Record<string, any>) {
-  userStore.addUser(values)
+  const user: Omit<User, 'id' | 'createdAt'> = {
+    first_name: values.first_name,
+    last_name: values.last_name,
+    email: values.email,
+    phone_number: values.phone_number,
+    state: values.state,
+    status: values.status,
+    details: values.details || '',
+  }
+
+  userStore.addUser(user)
   toast({
     title: 'User created successfully',
     description: 'The user has been added to the system.',
