@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import Overview from './Overview.vue'
 </script>
 
 <template>
