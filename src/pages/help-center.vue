@@ -9,27 +9,43 @@ interface ISocialMediaAccount {
 }
 
 const socialMediaAccounts = ref<ISocialMediaAccount[]>([
-  { title: 'GitHub', desc: ' The source code of Shadcn UI is publicly available on GitHub.', url: 'https://github.com/Whbbit1999/shadcn-vue-admin' },
-  { title: 'Discord', desc: 'Join our Discord server to ask questions, share your projects, and get involved in the community.', url: '' },
-  { title: 'Bilibili', desc: '在哔哩哔哩上找到我们', url: 'https://space.bilibili.com/104376935' },
+  {
+    title: 'GitHub',
+    desc:
+      'This is where i have all my personl project, all publicly available on GitHub.',
+    url: 'https://github.com/Vinyl-Davyl',
+  },
+  {
+    title: 'Website',
+    desc: 'A portfolio of some of major works',
+    url: 'https://vinyldavyl.xyz',
+  },
+  {
+    title: 'Twitter',
+    desc: 'Randomly rant and share my thoughts here',
+    url: 'https://x.com/Vinylchi',
+  },
 ])
 </script>
 
 <template>
-  <Page
-    title="Help Center"
-    description="Help Center description"
-  >
+  <Page title="Know More" description="About Me">
     <Alert>
-      <AlertTitle>Heads up!</AlertTitle>
+      <AlertTitle>Heads up! Hey Recriuter👋</AlertTitle>
       <AlertDescription>
-        You can find answers to your questions in our help center.
+        You can find answers to your questions on any more information you would
+        like to know about me.
       </AlertDescription>
     </Alert>
 
     <ul class="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2 lg:grid-cols-3">
       <li v-for="account in socialMediaAccounts" :key="account.title">
-        <a :href="account.url || '#'" target="_blank" rel="noopener noreferrer" class="block p-4 border rounded-lg shadow bg-background border-border">
+        <a
+          :href="account.url || '#'"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block p-4 border rounded-lg shadow bg-background border-border"
+        >
           <h2 class="mb-2 text-lg font-bold">
             {{ account.title }}
           </h2>
@@ -42,5 +58,4 @@ const socialMediaAccounts = ref<ISocialMediaAccount[]>([
   </Page>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>

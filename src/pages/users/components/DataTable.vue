@@ -35,14 +35,31 @@ interface DataTableProps {
 }
 const props = defineProps<DataTableProps>()
 
+const searchQuery = ref('')
+
 const sorting = ref<SortingState>([])
 const columnFilters = ref<ColumnFiltersState>([])
 const columnVisibility = ref<VisibilityState>({})
 const rowSelection = ref({})
 
+const filteredData = computed(() => {
+  if (!searchQuery.value) return props.data
+
+  const query = searchQuery.value.toLowerCase()
+  return props.data.filter(
+    (user) =>
+      user.first_name.toLowerCase().includes(query) ||
+      user.last_name.toLowerCase().includes(query) ||
+      user.email.toLowerCase().includes(query) ||
+      user.phone_number.toLowerCase().includes(query) ||
+      user.state.toLowerCase().includes(query) ||
+      (user.status ? 'active' : 'inactive').includes(query),
+  )
+})
+
 const table = useVueTable({
   get data() {
-    return props.data
+    return filteredData.value
   },
   get columns() {
     return props.columns

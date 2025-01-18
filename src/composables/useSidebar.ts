@@ -1,9 +1,5 @@
 import type { NavGroup } from '@/components/AppSidebar/types'
-import {
-  BadgeHelp,
-  LayoutDashboard,
-  Users,
-} from 'lucide-vue-next'
+import { BadgeHelp, LayoutDashboard, Users } from 'lucide-vue-next'
 
 export function useSidebar() {
   const navData = ref<NavGroup[]>()
@@ -28,7 +24,7 @@ export function useSidebar() {
       title: 'Pages',
       items: [
         {
-          title: 'Help Center',
+          title: 'Know More',
           url: '/help-center',
           icon: BadgeHelp,
         },

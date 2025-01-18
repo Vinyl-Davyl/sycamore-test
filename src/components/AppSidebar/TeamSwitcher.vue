@@ -5,8 +5,6 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import {
@@ -14,10 +12,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import {
-  ChevronsUpDown,
-  Plus,
-} from 'lucide-vue-next'
 
 const { teams } = defineProps<{
   teams: Team[]
@@ -47,7 +41,6 @@ function setActiveTeam(team: Team) {
               <span class="font-semibold truncate">{{ activeTeam.name }}</span>
               <span class="text-xs truncate">{{ activeTeam.plan }}</span>
             </div>
-            <ChevronsUpDown class="ml-auto" />
           </SidebarMenuButton>
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -57,28 +50,20 @@ function setActiveTeam(team: Team) {
           :side-offset="4"
         >
           <DropdownMenuLabel class="text-xs text-muted-foreground">
-            Teams
+            Admin
           </DropdownMenuLabel>
           <DropdownMenuItem
-            v-for="(team, index) in teams"
+            v-for="team in teams"
             :key="team.name"
             class="gap-2 p-2"
             @click="setActiveTeam(team)"
           >
-            <div class="flex items-center justify-center border rounded-sm size-6">
+            <div
+              class="flex items-center justify-center border rounded-sm size-6"
+            >
               <component :is="team.logo" class="size-4 shrink-0" />
             </div>
             {{ team.name }}
-            <DropdownMenuShortcut>⌘{{ index + 1 }}</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuSeparator />
-          <DropdownMenuItem class="gap-2 p-2">
-            <div class="flex items-center justify-center border rounded-md size-6 bg-background">
-              <Plus class="size-4" />
-            </div>
-            <div class="font-medium text-muted-foreground">
-              Add team
-            </div>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

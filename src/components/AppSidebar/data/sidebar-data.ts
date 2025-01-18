@@ -1,16 +1,8 @@
-import type { SidebarData, Team, User } from '../types'
+import type { SidebarData, Team } from '../types'
 
 import { useSidebar } from '@/composables/useSidebar'
 
-import {
-  GalleryVerticalEnd,
-} from 'lucide-vue-next'
-
-const user: User = {
-  name: 'shadcn',
-  email: 'm@example.com',
-  avatar: '/avatars/shadcn.jpg',
-}
+import { GalleryVerticalEnd } from 'lucide-vue-next'
 
 const teams: Team[] = [
   {
@@ -23,7 +15,6 @@ const teams: Team[] = [
 const { navData } = useSidebar()
 
 export const sidebarData: SidebarData = {
-  user,
   teams,
   navMain: navData.value!,
 }

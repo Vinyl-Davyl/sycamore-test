@@ -2,13 +2,10 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarRail,
 } from '@/components/ui/sidebar'
 import { sidebarData } from './data/sidebar-data'
-
-import NavFooter from './NavFooter.vue'
 import NavGroup from './NavGroup.vue'
 import TeamSwitcher from './TeamSwitcher.vue'
 </script>
@@ -22,10 +19,6 @@ import TeamSwitcher from './TeamSwitcher.vue'
     <SidebarContent>
       <NavGroup :nav-main="sidebarData.navMain" />
     </SidebarContent>
-
-    <SidebarFooter>
-      <NavFooter :user="sidebarData.user" />
-    </SidebarFooter>
 
     <SidebarRail />
   </Sidebar>

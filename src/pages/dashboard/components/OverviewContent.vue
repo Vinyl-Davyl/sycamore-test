@@ -1,15 +1,16 @@
 <script lang="ts" setup>
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import Overview from './Overview.vue'
-import RecentSales from './RecentSales.vue'
 </script>
 
 <template>
   <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
     <Card>
-      <CardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
+      <CardHeader
+        class="flex flex-row items-center justify-between pb-2 space-y-0"
+      >
         <CardTitle class="text-sm font-medium">
-          Total Revenue
+          Total Registered
         </CardTitle>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -26,7 +27,7 @@ import RecentSales from './RecentSales.vue'
       </CardHeader>
       <CardContent>
         <div class="text-2xl font-bold">
-          $45,231.89
+          45
         </div>
         <p class="text-xs text-muted-foreground">
           +20.1% from last month
@@ -34,9 +35,11 @@ import RecentSales from './RecentSales.vue'
       </CardContent>
     </Card>
     <Card>
-      <CardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
+      <CardHeader
+        class="flex flex-row items-center justify-between pb-2 space-y-0"
+      >
         <CardTitle class="text-sm font-medium">
-          Subscriptions
+          Total Users
         </CardTitle>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -55,43 +58,17 @@ import RecentSales from './RecentSales.vue'
       </CardHeader>
       <CardContent>
         <div class="text-2xl font-bold">
-          +2350
+          +45
         </div>
         <p class="text-xs text-muted-foreground">
-          +180.1% from last month
+          +10.1% from last month
         </p>
       </CardContent>
     </Card>
     <Card>
-      <CardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
-        <CardTitle class="text-sm font-medium">
-          Sales
-        </CardTitle>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          class="w-4 h-4 text-muted-foreground"
-        >
-          <rect width="20" height="14" x="2" y="5" rx="2" />
-          <path d="M2 10h20" />
-        </svg>
-      </CardHeader>
-      <CardContent>
-        <div class="text-2xl font-bold">
-          +12,234
-        </div>
-        <p class="text-xs text-muted-foreground">
-          +19% from last month
-        </p>
-      </CardContent>
-    </Card>
-    <Card>
-      <CardHeader class="flex flex-row items-center justify-between pb-2 space-y-0">
+      <CardHeader
+        class="flex flex-row items-center justify-between pb-2 space-y-0"
+      >
         <CardTitle class="text-sm font-medium">
           Active Now
         </CardTitle>
@@ -110,10 +87,40 @@ import RecentSales from './RecentSales.vue'
       </CardHeader>
       <CardContent>
         <div class="text-2xl font-bold">
-          +573
+          +15
         </div>
         <p class="text-xs text-muted-foreground">
-          +201 since last hour
+          +1 since last hour
+        </p>
+      </CardContent>
+    </Card>
+    <Card>
+      <CardHeader
+        class="flex flex-row items-center justify-between pb-2 space-y-0"
+      >
+        <CardTitle class="text-sm font-medium">
+          Top States
+        </CardTitle>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          class="w-4 h-4 text-muted-foreground"
+        >
+          <rect width="20" height="14" x="2" y="5" rx="2" />
+          <path d="M2 10h20" />
+        </svg>
+      </CardHeader>
+      <CardContent>
+        <div class="text-2xl font-bold">
+          Lagos
+        </div>
+        <p class="text-xs text-muted-foreground">
+          +19% from last month
         </p>
       </CardContent>
     </Card>
@@ -126,17 +133,6 @@ import RecentSales from './RecentSales.vue'
       </CardHeader>
       <CardContent>
         <Overview />
-      </CardContent>
-    </Card>
-    <Card class="col-span-1 lg:col-span-3">
-      <CardHeader>
-        <CardTitle>Recent Sales</CardTitle>
-        <CardDescription>
-          You made 265 sales this month.
-        </CardDescription>
-      </CardHeader>
-      <CardContent>
-        <RecentSales />
       </CardContent>
     </Card>
   </div>
