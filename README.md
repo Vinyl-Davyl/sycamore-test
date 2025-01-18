@@ -62,6 +62,22 @@ This application allows users to create, read, update, and delete customer infor
 The application is deployed on [Vercel](https://sycamore-test-vinyl.vercel.app/). You can access the live demo [here](https://sycamore-test-vinyl.vercel.app/).
 
 ## Media
+<img width="1498" alt="Screenshot 2025-01-18 at 12 26 41 PM" src="https://github.com/user-attachments/assets/35747d42-8452-469f-807b-da179fd509cc" />
+
+<img width="1498" alt="Screenshot 2025-01-18 at 12 26 24 PM" src="https://github.com/user-attachments/assets/c0abd4e7-5136-4d7f-b17c-cf3452401307" />
+
+
+<img width="366" alt="Screenshot 2025-01-18 at 12 32 20 PM" src="https://github.com/user-attachments/assets/4717079a-6317-4626-a4d2-3367a435a8a9" />
+
+<img width="366" alt="Screenshot 2025-01-18 at 12 32 54 PM" src="https://github.com/user-attachments/assets/f7ba16c3-28fc-4428-8bfa-562512552edd" />
+
+
+
+
+
+
+
+
 
 ## References
 
