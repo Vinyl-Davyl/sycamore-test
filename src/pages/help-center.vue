@@ -17,12 +17,13 @@ const socialMediaAccounts = ref<ISocialMediaAccount[]>([
   },
   {
     title: 'Website',
-    desc: 'A portfolio of some of major works',
+    desc: 'Know more about me, Here is a portfolio of some of my major works',
     url: 'https://vinyldavyl.xyz',
   },
   {
     title: 'Twitter',
-    desc: 'Randomly rant and share my thoughts here',
+    desc:
+      'For value of documentation and social life, Randomly rant and share my thoughts here',
     url: 'https://x.com/Vinylchi',
   },
 ])
