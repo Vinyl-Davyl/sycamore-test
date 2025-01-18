@@ -81,8 +81,8 @@ The application is deployed on [Vercel](https://sycamore-test-vinyl.vercel.app/)
 
 ## References
 
-- Design inspiration from [Behance](https://www.behance.net) and [Dribbble](https://dribbble.com).
-
+- Design inspiration from [Craxinno Technologies Behance Designs](https://www.behance.net/gallery/195976673/Dashboard) 
+  
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
